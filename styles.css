@@ -1,0 +1,35 @@
+body{
+
+    font-family: 'Source Code Pro', monospace;
+    display: block; 
+    margin-left: auto;
+    width: 40%;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+#container{
+    
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-left: 3px solid black;
+    border-top: 3px solid black;
+
+}
+.rowDiv {
+    display: flex;
+    flex-direction: row;    
+    flex-grow: 1;
+}
+.columnDiv {
+
+    flex-grow: 1;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+
+
