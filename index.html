@@ -17,12 +17,16 @@
     <div id="parent">
 
         <div id="menu" draggable="false">
+            <h2>Menu</h2>
             <span id="sizeName">Size 16X16</span>
             <input type="range" id="sizeInp" value="16" min="1" max="50" >
-            <span>Change Color </span>
-            <input type="text" name="color" id="colorInp">
+            <div id="colorPicker">
+                <input type="color" name="color" id="colorInp">
+                <label for="colorInp">Color</label>
+            </div>    
             <button type="button" id="eraseAll">Clear</button>
             <button type="button" id="Rainbow">Rainbow Mode</button>
+            <button type="button" id="reset">Reset</button>
         </div>
         <div id="container-parent">
             <div id="container" draggable="false"></div>

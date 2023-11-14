@@ -18,6 +18,8 @@ body{
     border-width: 2rem;
 }
 #menu{
+    width: 15rem;
+    border: 2px solid black;
     justify-content: space-evenly;
     display: flex;
     flex-direction: column;
@@ -25,7 +27,7 @@ body{
 #container{
     display: flex;
     flex-direction: column;
-
+    box-shadow: 3px 6px 6px 3px;
 
     border-left: 1px solid black;
     border-top: 1px solid black;
@@ -41,11 +43,22 @@ button{
     margin: 10px;
     border-radius: 2rem;
 }
+#colorInp{
+    border: 1px solid black;
+    padding: 1px;
+}
 .rowDiv {
     display: flex;
     flex-direction: row;    
     flex-grow: 1;
 }
+
+#colorPicker{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .columnDiv {
 
     flex-grow: 1;

@@ -1,12 +1,12 @@
 let gridSize = 16;
 let gridColor = 'black';
 let changeColor = false;
+let blackColor = true;
 
 const container = document.getElementById('container');
 
 container.style.width = '42rem';
 container.style.height = '42rem';
-container.style.backgroundColor = '#aaa';
 
 let clickDown = false;
 
@@ -29,6 +29,15 @@ container.addEventListener('mouseup', () => {
     clickDown = false;
 })
 
+
+
+const colors = document.getElementById('colorInp');
+
+colors.addEventListener('input', () => {
+    gridColor = colors.value;
+    blackColor = false;
+});
+
 function createGrid()
 {
     for (let i = 0; i < gridSize; i++)
@@ -49,9 +58,10 @@ function createGrid()
                 
                     if(changeColor)
                         gridColor = colorChanger();
-                    else{
+                    else if(blackColor){
                         gridColor = 'black';
                     }
+
                     columnDiv.style.backgroundColor = gridColor;
             })
             columnDiv.addEventListener('mouseover', () => {
@@ -59,9 +69,10 @@ function createGrid()
                 if(clickDown){
                     if(changeColor)
                         gridColor = colorChanger();
-                    else{
+                    else if(blackColor){
                         gridColor = 'black';
                     }
+                    
                     columnDiv.style.backgroundColor = gridColor;
                 }
             })
@@ -96,9 +107,6 @@ clearBtn.style.color = 'black';
 clearBtn.style.backgroundColor = '#B9B4C7';
 clearBtn.style.borderWidth = '1px';
 
-// clearBtn.addEventListener('onfocus', () => {
-
-// });
 clearBtn.addEventListener('click', () => {
     clearBtn.focus({ focusVisible: true });
     removeGrid();
@@ -122,9 +130,23 @@ rainBow.addEventListener('click', () =>{
     }
     else
     {
-        rainBow.style.color = 'black';
-        rainBow.style.backgroundColor = '#B9B4C7';
-        rainBow.style.borderWidth = '1px';
+        highlightrmv(rainBow);
         changeColor = false;
     }
 });
+
+const resetBtn = document.getElementById('reset');
+
+resetBtn.addEventListener('click', ()=>{
+    gridColor = 'black';
+    removeGrid();
+    createGrid();
+    changeColor = false;
+    highlightrmv(rainBow);
+});
+
+function highlightrmv(target){
+    target.style.color = 'black';
+    target.style.backgroundColor = '#B9B4C7';
+    target.style.borderWidth = '1px';
+}
