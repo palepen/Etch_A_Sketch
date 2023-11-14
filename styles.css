@@ -1,22 +1,45 @@
 body{
 
     font-family: 'Source Code Pro', monospace;
-    display: block; 
+    display: flex; 
     margin-left: auto;
-    width: 40%;
     margin-right: auto;
     text-align: center;
-
+    flex-direction: column;
+    align-items: center;
+    /* background-color: rgb(10, 100, 100); */
 }
 
-#container{
-    
+#parent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    border-width: 2rem;
+}
+#menu{
+    justify-content: space-evenly;
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
-    border-left: 3px solid black;
-    border-top: 3px solid black;
+}
+#container{
+    display: flex;
+    flex-direction: column;
 
+
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+
+}
+#container-parent{
+    margin: 2rem;
+    border: 3px solid black;
+}
+button{
+    font-family: 'Source Code Pro';
+    border: 1px solid #352F44;
+    margin: 10px;
+    border-radius: 2rem;
 }
 .rowDiv {
     display: flex;
