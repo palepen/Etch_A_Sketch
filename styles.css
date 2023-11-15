@@ -8,7 +8,7 @@ body{
     flex-direction: column;
     align-items: center;
     background-color: #D8D9CF;
-    /* background-color: rgb(10, 100, 100); */
+
 }
 
 
@@ -41,6 +41,7 @@ body{
     border: 3px solid black;
 }
 button{
+    background-color: #B9B4C7;
     font-family: 'Source Code Pro';
     border: 1px solid #352F44;
     margin: 10px;

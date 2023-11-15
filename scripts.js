@@ -132,7 +132,7 @@ const colors = document.getElementById('colorInp');
 
 colors.addEventListener('input', () => {
     highlightrmv(rainBow);
-    
+
     changeColor = 2;    
 });
 
@@ -148,3 +148,10 @@ function colorSelect()
         return colors.value;       
     }
 }
+
+
+const surprise = document.getElementById('Link');
+
+surprise.addEventListener('click', () =>{
+    window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran", "_blank")
+})
