@@ -7,8 +7,10 @@ body{
     text-align: center;
     flex-direction: column;
     align-items: center;
+    background-color: #D8D9CF;
     /* background-color: rgb(10, 100, 100); */
 }
+
 
 #parent{
     display: flex;
@@ -18,6 +20,7 @@ body{
     border-width: 2rem;
 }
 #menu{
+
     width: 15rem;
     border: 2px solid black;
     justify-content: space-evenly;
