@@ -1,7 +1,6 @@
 let gridSize = 16;
 let gridColor = 'black';
-let changeColor = false;
-let blackColor = true;
+let changeColor = 0;
 
 const container = document.getElementById('container');
 
@@ -14,11 +13,20 @@ function getRandNum(){
     return Math.floor(1000 * Math.random()) % 100;
 }
 
+function setBtnStyle(target){
+    target.style.color = 'black';
+    target.style.backgroundColor = '#B9B4C7';
+    target.style.borderWidth = '1px';
+}
+
 function colorChanger()
 {
-    gridColor = `rgb(${getRandNum()}%, ${getRandNum()}%, ${getRandNum()}%)`;
-    console.log(gridColor);
-    return gridColor;
+    return `rgb(${getRandNum()}%, ${getRandNum()}%, ${getRandNum()}%)`;
+}
+function highlightrmv(target){
+    target.style.color = 'black';
+    target.style.backgroundColor = '#B9B4C7';
+    target.style.borderWidth = '1px';
 }
 
 container.addEventListener('mousedown', () => {
@@ -29,14 +37,6 @@ container.addEventListener('mouseup', () => {
     clickDown = false;
 })
 
-
-
-const colors = document.getElementById('colorInp');
-
-colors.addEventListener('input', () => {
-    gridColor = colors.value;
-    blackColor = false;
-});
 
 function createGrid()
 {
@@ -55,27 +55,14 @@ function createGrid()
      
 
             columnDiv.addEventListener('mousedown', () => {
-                
-                    if(changeColor)
-                        gridColor = colorChanger();
-                    else if(blackColor){
-                        gridColor = 'black';
-                    }
 
-                    columnDiv.style.backgroundColor = gridColor;
+                    columnDiv.style.backgroundColor = colorSelect();
             })
             columnDiv.addEventListener('mouseover', () => {
-
-                if(clickDown){
-                    if(changeColor)
-                        gridColor = colorChanger();
-                    else if(blackColor){
-                        gridColor = 'black';
-                    }
-                    
-                    columnDiv.style.backgroundColor = gridColor;
-                }
-            })
+                if(clickDown)
+                    columnDiv.style.backgroundColor = colorSelect();
+        
+        });
 
             rowDiv.appendChild(columnDiv);
         }
@@ -103,50 +90,61 @@ gridSizeInput.addEventListener('input', () => {
 
 
 const clearBtn = document.getElementById('eraseAll');
-clearBtn.style.color = 'black';
-clearBtn.style.backgroundColor = '#B9B4C7';
-clearBtn.style.borderWidth = '1px';
+setBtnStyle(clearBtn);
 
 clearBtn.addEventListener('click', () => {
-    clearBtn.focus({ focusVisible: true });
+    clearBtn.focus();
     removeGrid();
     createGrid();
     
 });
 
 const rainBow = document.getElementById('Rainbow');
-rainBow.style.color = 'black';
-rainBow.style.backgroundColor = '#B9B4C7';
-rainBow.style.borderWidth = '1px';
-
+setBtnStyle(rainBow)
 
 rainBow.addEventListener('click', () =>{
-    if(!changeColor)
+    if(changeColor != 1)
     {
         rainBow.style.backgroundColor = '#352F44';
         rainBow.style.color = 'white';
         rainBow.style.borderWidth = '2px';
-        changeColor = true;
+        changeColor = 1;
     }
     else
     {
         highlightrmv(rainBow);
-        changeColor = false;
+        changeColor = 0;
     }
 });
 
 const resetBtn = document.getElementById('reset');
+setBtnStyle(resetBtn);
 
 resetBtn.addEventListener('click', ()=>{
     gridColor = 'black';
     removeGrid();
     createGrid();
-    changeColor = false;
+    changeColor = 0
     highlightrmv(rainBow);
 });
 
-function highlightrmv(target){
-    target.style.color = 'black';
-    target.style.backgroundColor = '#B9B4C7';
-    target.style.borderWidth = '1px';
+const colors = document.getElementById('colorInp');
+
+colors.addEventListener('input', () => {
+    highlightrmv(rainBow);
+    
+    changeColor = 2;    
+});
+
+function colorSelect()
+{
+
+    if(changeColor == 0)
+        return 'black';
+    else if(changeColor == 1)
+        return colorChanger();
+    else{
+    
+        return colors.value;       
+    }
 }
