@@ -13,6 +13,7 @@ body{
 
 
 #parent{
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,7 +21,7 @@ body{
     border-width: 2rem;
 }
 #menu{
-
+    height: 42rem;
     width: 15rem;
     border: 2px solid black;
     justify-content: space-evenly;
@@ -30,7 +31,7 @@ body{
 #container{
     display: flex;
     flex-direction: column;
-    box-shadow: 3px 6px 6px 3px;
+
 
     border-left: 1px solid black;
     border-top: 1px solid black;
